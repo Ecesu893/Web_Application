@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Etkinlik</title>
+    <style>
+        body 
+        { 
+            margin: auto;
+            display: block;
+            background-color: whitesmoke;
+            max-width: max-content;
+            margin: auto;
+            font-family: Arial; 
+            padding: 20px; 
+        }
+
+        h1{
+            text-align: center;
+            color:rgb(63, 52, 52);
+        }
+
+        input, button 
+        { 
+            padding: 10px; 
+            margin: 5px; 
+        }
+        #result 
+        { 
+            margin-top: 20px; 
+            white-space: pre-line; 
+        }
+
+        button:hover{
+            opacity: 100%;
+            background-color:darkblue;
+            color: white;
+        }
+        
+        button.sil:hover{
+            opacity: 100%;
+            background-color: darkgreen;
+            color: white;
+        }
+
+        button
+        {
+            opacity: 90%;
+            background-color: cadetblue;
+            color: black;
+        }
+
+        button.sil{
+            opacity: 90%;
+            background-color: rgb(122, 189, 107);
+            color: black;            
+        }
+
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;        /*Genişlik daraldığında alt satıra geçer, bozulma olmaz*/
+            gap: 10px;        
+            margin-top: 20px;
+        }
+
+        .form-wrapper select,
+        .form-wrapper input,
+        .form-wrapper button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;        /*Yatayda ortalar */
+            margin-top: 30px;
+        }
+
+        #response.response-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 1000px;
+            box-sizing: border-box;     /*Taşmaları önler*/
+            white-space: pre-line;      /*Boşlukları yorumlar*/
+            word-break: break-word;     /*Satır sonlarına sığmayan kelimeleri uygun bir şekilde bölerek alt satıra geçirir*/
+        }
+
+
+
+    
+    </style>
+</head>
+<body>
+
+    <h1>ChatGPT ile Etkinlik Oluştur</h1>
+    <div class="form-wrapper">
+        <select id="gender" style="width: 160px; height: 40px; margin-top: 5px;">
+            <option value="1">Kız</option>
+            <option value="2">Erkek</option>
+        </select> 
+        <input type="number" id="age" placeholder="Yaş (örn: 12)" required>
+        <select id="place" style="width: 160px; height: 40px; margin-top: 5px;">
+            <option value="1">Kapalı Alan</option>
+            <option value="2">Açık Alan</option>
+        </select>
+        <input type="number" id="number" placeholder="Kişi Sayısı (örn: 3)" required>
+        <input type="text" id="hobby" placeholder="Hobiler (örn: resim)" required>
+        <button onclick="generateActivity()">Etkinlik Oluştur</button>
+        <button class="sil" type="button" onclick="clearFields()">Temizle</button>
+
+    </div>
+</br>
+    <div id="response" class="response-box" style="text-align: left;"></div>
+    
+    <script src="api.js"></script>
+
+</body>
+</html>
